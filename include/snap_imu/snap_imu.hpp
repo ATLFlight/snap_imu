@@ -43,7 +43,7 @@
 
 #include <ros/ros.h>
 
-#include <sensor_msgs/Imu.h>
+
 #include <snap_msgs/ImuArray.h>
 
 class SnapImuDriver : public Snapdragon::Imu_IEventListener {
@@ -80,6 +80,7 @@ protected:
 
   ros::NodeHandle nh_;
   ros::Publisher imu_pub_;
+  ros::Publisher imu_std_pub_;
   bool running_;
   ros::Duration monotonic_offset;
 
