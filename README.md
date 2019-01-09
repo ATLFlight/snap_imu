@@ -15,6 +15,8 @@ cd ..
 catkin_make
 ```
 
+If you are using QFlight Pro, please follow build instructions here: [QFlight Pro Buildi Instructions](https://github.com/ATLFlight/QFlightProDocs/blob/master/RosSoftware.md).  You will also not need to run the rosdep install line.
+
 Note that you will also need the [snap_msgs](https://github.com/ATLFlight/snap_msgs) package.  snap_imu publishes snap_msgs/ImuArray messages.  snap_imu puts on average 5 sensor_msgs/Imu into an array to make better use of bandwith with [snap_vio](https://github.com/ATLFlight/snap_vio).  snap_imu is probably most useful in conjunction with snap_vio, but can also be run standalone:
 
 ```bash
