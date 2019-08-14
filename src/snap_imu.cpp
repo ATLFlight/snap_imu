@@ -33,6 +33,7 @@
  ****************************************************************************/
 
 #include "snap_imu/snap_imu.hpp"
+#include <sensor_msgs/Imu.h> 
 
 SnapImuDriver::SnapImuDriver(ros::NodeHandle nh)
   : nh_(nh) {
@@ -95,6 +96,7 @@ int32_t SnapImuDriver::CleanUp() {
 
 void SnapImuDriver::advertiseTopics(){
   imu_pub_ = nh_.advertise<snap_msgs::ImuArray>("imu_raw_array", 100);
+  imu_std_pub_ = nh_.advertise<sensor_msgs::Imu>("imu", 100);
 }
 
 
@@ -170,5 +172,6 @@ int32_t SnapImuDriver::Imu_IEventListener_ProcessSamples( sensor_imu* imu_sample
 
   }
   imu_pub_.publish(array);
+  imu_std_pub_.publish(sample);
   return rc;
 }
